@@ -6,10 +6,16 @@ const prompt = inquirer.createPromptModule();
 
 prompt ([
     {
-
         type: "input",
-        name: "name",
         message: "ENTER QUESTION HERE?",
-
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "ENTER QUESTION HERE?",
+        name: "name",
     }
 ])
+.then((data) => {
+    console.log(data);
+});
