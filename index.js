@@ -1,6 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const shapes = require('./lib/shapes.js');
+const {createShape} = require('./lib/shapes/shapes');
 const prompt = inquirer.createPromptModule();
 
 // Basic rendering questions
@@ -31,7 +31,7 @@ prompt ([
     console.log(answers);
   
     // Generate the SVG 
-    const svgContent = generateSVG(answers);
+    const svgContent = createShape(answers);
     fs.writeFileSync('logo.svg', svgContent);
     console.log('Generated logo.svg');
   });
