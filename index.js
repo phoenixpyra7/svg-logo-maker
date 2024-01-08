@@ -3,19 +3,35 @@ const inquirer = require("inquirer");
 const shapes = require('./lib/shapes.js');
 const prompt = inquirer.createPromptModule();
 
-
+// Basic rendering questions
 prompt ([
     {
         type: "input",
-        message: "ENTER QUESTION HERE?",
-        name: "name",
+        message: "Please select 1-3 letters for your text?",
+        name: "text",
     },
     {
         type: "input",
-        message: "ENTER QUESTION HERE?",
-        name: "name",
+        message: "What color would you like your text to be?",
+        name: "textColor",
+    },
+    {
+        type: "list",
+        message: "Please select your desired shape:",
+        options: ["square", "triangle", "circle"],
+        name: "shape",
+    },
+    {
+        type: "input",
+        message: "What color would you like the shape to be?",
+        name: "shapeColor",
     }
-])
-.then((data) => {
-    console.log(data);
-});
+]).then((answers) => {
+    // To process the users input
+    console.log(answers);
+  
+    // Generate the SVG 
+    const svgContent = generateSVG(answers);
+    fs.writeFileSync('logo.svg', svgContent);
+    console.log('Generated logo.svg');
+  });
