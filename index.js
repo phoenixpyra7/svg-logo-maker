@@ -1,6 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const {createShape} = require('./lib/shapes/shapes');
+const createShape = require('./lib/shapes/shapes');
 const prompt = inquirer.createPromptModule();
 
 // Basic rendering questions
@@ -16,9 +16,9 @@ prompt ([
         name: "textColor",
     },
     {
-        type: "list",
+        type: "rawlist",
         message: "Please select your desired shape:",
-        options: ["square", "triangle", "circle"],
+        choices: ["square", "triangle", "circle"],
         name: "shape",
     },
     {
@@ -31,7 +31,10 @@ prompt ([
     console.log(answers);
   
     // Generate the SVG 
-    const svgContent = createShape(answers);
+    const svgContent = createShape(answers.shape, answers.text, answers.shapeColor, answers.textColor);
+    console.log(svgContent);
+
     fs.writeFileSync('logo.svg', svgContent);
     console.log('Generated logo.svg');
+
   });
