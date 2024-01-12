@@ -1,6 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const createShape = require('./lib/shapes/shapes');
+const createShape = require('./lib/shapes');
 const prompt = inquirer.createPromptModule();
 
 // Basic rendering questions
@@ -12,7 +12,7 @@ prompt ([
     },
     {
         type: "input",
-        message: "What color would you like your text to be?",
+        message: "What color would you like your text to be (keyword or hexadecimal)?",
         name: "textColor",
     },
     {
@@ -23,7 +23,7 @@ prompt ([
     },
     {
         type: "input",
-        message: "What color would you like the shape to be?",
+        message: "What color would you like the shape to be (keyword or hexadecimal)?",
         name: "shapeColor",
     }
 ]).then((answers) => {
