@@ -1,7 +1,7 @@
 # svg-logo-maker
 
 ## Description
-This SVG logo generator allows you to select up to three characters, you then select a base shape of square, circle or triangle. Both the shape and font colors can be customized.
+This SVG logo generator allows you to select from 1-3 characters, select a shape (square, circle or triangle), and select the shape color and font color. The generated logo will then be saved with the title comprised ofr the characters which were used to create it.
 
 ## Link 
 
