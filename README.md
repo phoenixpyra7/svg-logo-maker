@@ -5,7 +5,7 @@ This SVG logo generator allows you to select from 1-3 characters, select a shape
 
 ## Link 
 
-Live Recording URL:  N/A
+Live Recording URL: https://www.awesomescreenshot.com/video/24002555?key=570364ce38a77c88019ee5cabac4b364 
 
 ## Resources
 
