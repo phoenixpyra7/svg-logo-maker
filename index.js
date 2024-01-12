@@ -9,6 +9,15 @@ prompt([
     type: "input",
     message: "Please select 1-3 letters for your text?",
     name: "text",
+    validate: (input) => {
+      if (input.length < 1) {
+        return "Please enter at least 1 character.";
+      }
+      if (input.length > 3) {
+        return "Please enter no more than 3 characters.";
+      }
+      return true;
+    }
   },
   {
     type: "input",
@@ -28,13 +37,14 @@ prompt([
       "What color would you like the shape to be (keyword or hexadecimal)?",
     name: "shapeColor",
   },
-]).then((answers) => {
+]).then(async (answers) => {
+    
   // To process the users input
   console.log(answers);
 
 // Generate the SVG
   const svgContent = createShape(answers.shape, answers.text, answers.shapeColor, answers.textColor);
   console.log(svgContent);
-  fs.writeFileSync("logo.svg", svgContent);
+  fs.writeFileSync(`${process.cwd()}/logos/${answers.text}.svg`, svgContent);
   console.log("Generated logo.svg");
 });
